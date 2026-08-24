@@ -1,0 +1,265 @@
+# MRST Skills Declarative Manifest (Single Source of Truth)
+# Version: 1.0.0
+# Description: Defines the complete topology, upstream/downstream DAG, domain clusters,
+# and reference documents for all 19 skills in the MRST agentic ecosystem.
+
+clusters:
+  - id: core_foundation
+    name: Core & Foundation
+    skills: [mrst-gridding, mrst-core-procedural, mrst-ad-oo]
+  - id: energy_storage
+    name: Energy Transition & Storage
+    skills: [mrst-co2-storage, mrst-hydrogen-storage, mrst-geothermal]
+  - id: complex_physics
+    name: Advanced Fluid & Coupled Physics
+    skills: [mrst-eor, mrst-fractured-reservoirs, mrst-geomechanics]
+  - id: solver_stack
+    name: Solver Stack & Optimization
+    skills: [mrst-linear-solvers, mrst-optimization, mrst-diagnostics]
+  - id: developer_frameworks
+    name: Developer Frameworks
+    skills: [mrst-ad-scripting, mrst-custom-physics]
+  - id: tooling_qa
+    name: Diagnostics, Tooling & QA
+    skills: [mrst-wells-facilities, mrst-visualization, mrst-debugging, mrst-testing]
+
+skills:
+  mrst:
+    title: 'MRST Skill Router'
+    cluster: 'router'
+    description: 'Route any MRST simulation request to the correct specialist skill(s).'
+    upstream: []
+    downstream: ['All specialist skills']
+    references: []
+
+  mrst-gridding:
+    title: 'MRST Grid Generation & Data Import Skill'
+    cluster: 'core_foundation'
+    description: 'Build grids and import industry data files for MRST simulations.'
+    upstream: []
+    downstream:
+      - 'All other skills depend on this for grids'
+    references:
+      - title: 'Gridding Best Practices'
+        file: 'references/gridding_best_practices.md'
+
+  mrst-core-procedural:
+    title: 'MRST Core Procedural (Incompressible Flow) Skill'
+    cluster: 'core_foundation'
+    description: 'Incompressible single-phase and two-phase flow simulation using procedural TPFA/IMPES.'
+    upstream:
+      - 'mrst-gridding — for grid generation and data import'
+    downstream:
+      - 'mrst-diagnostics'
+      - 'mrst-fractured-reservoirs'
+    references:
+      - title: 'Procedural Best Practices'
+        file: 'references/procedural_best_practices.md'
+
+  mrst-ad-oo:
+    title: 'MRST AD-OO (Black-Oil & Compositional) Skill'
+    cluster: 'core_foundation'
+    description: 'Fully implicit, automatic differentiation object-oriented reservoir simulation.'
+    upstream:
+      - 'mrst-gridding — for grid generation and data import'
+    downstream:
+      - 'mrst-co2-storage'
+      - 'mrst-hydrogen-storage'
+      - 'mrst-geothermal'
+      - 'mrst-optimization'
+      - 'mrst-geomechanics'
+      - 'mrst-eor'
+      - 'mrst-custom-physics'
+      - 'mrst-linear-solvers'
+    references:
+      - title: 'AD-OO Best Practices'
+        file: 'references/ad_oo_best_practices.md'
+
+  mrst-ad-scripting:
+    title: 'MRST AD Scripting Skill'
+    cluster: 'developer_frameworks'
+    description: 'Lightweight standalone PDE solvers with raw ADI variables.'
+    upstream:
+      - 'mrst-gridding — for grid generation and geometry computations'
+    downstream:
+      - 'mrst-custom-physics (alternative object-oriented paradigm)'
+    references: []
+
+  mrst-custom-physics:
+    title: 'MRST Custom Physics Skill'
+    cluster: 'developer_frameworks'
+    description: 'Subclassing PhysicalModel and StateFunction for custom physics.'
+    upstream:
+      - 'mrst-gridding — for grid generation'
+      - 'mrst-ad-oo — for foundational understanding of the AD-OO paradigm'
+    downstream:
+      - 'mrst-optimization'
+      - 'mrst-linear-solvers'
+      - 'mrst-testing'
+    references:
+      - title: 'Custom Physics Best Practices'
+        file: 'references/custom_physics_best_practices.md'
+
+  mrst-eor:
+    title: 'MRST EOR Skill'
+    cluster: 'complex_physics'
+    description: 'Enhanced Oil Recovery simulations using Automatic Differentiation (Polymer & Surfactant).'
+    upstream:
+      - 'mrst-gridding — for grid generation and data import'
+      - 'mrst-ad-oo — for foundational Object-Oriented simulation concepts'
+    downstream:
+      - 'mrst-optimization (for optimizing polymer slug sizes)'
+    references:
+      - title: 'EOR Best Practices'
+        file: 'references/eor_best_practices.md'
+
+  mrst-fractured-reservoirs:
+    title: 'MRST Fractured Reservoir Modeling Skill'
+    cluster: 'complex_physics'
+    description: 'Naturally fractured reservoir modeling via DFM, pEDFM, and NNCs.'
+    upstream:
+      - 'mrst-gridding — for grid generation and data import'
+      - 'mrst-core-procedural or mrst-ad-oo — for simulation framework'
+    downstream:
+      - 'mrst-linear-solvers (for performance)'
+    references:
+      - title: 'Fractures Best Practices'
+        file: 'references/fractures_best_practices.md'
+
+  mrst-geomechanics:
+    title: 'MRST Geomechanics & Poroelasticity Skill'
+    cluster: 'complex_physics'
+    description: 'Coupled flow-mechanics simulation using ad-mechanics and vemmech.'
+    upstream:
+      - 'mrst-gridding — for grid generation and data import'
+      - 'mrst-ad-oo — for AD-OO simulation framework'
+    downstream:
+      - 'mrst-co2-storage'
+      - 'mrst-geothermal'
+      - 'mrst-fractured-reservoirs'
+    references:
+      - title: 'Geomechanics Best Practices'
+        file: 'references/geomechanics_best_practices.md'
+
+  mrst-co2-storage:
+    title: 'MRST CO2 Storage Skill'
+    cluster: 'energy_storage'
+    description: 'CO2 sequestration simulations using vertical equilibrium (VE) models and co2lab.'
+    upstream:
+      - 'mrst-ad-oo — for AD-OO simulation framework'
+    downstream:
+      - 'mrst-geomechanics (caprock integrity)'
+      - 'mrst-linear-solvers'
+    references:
+      - title: 'CO2 Storage Best Practices'
+        file: 'references/co2_storage_best_practices.md'
+
+  mrst-hydrogen-storage:
+    title: 'MRST Hydrogen Storage Skill'
+    cluster: 'energy_storage'
+    description: 'Underground Hydrogen Storage simulations with gas mixing and hysteresis.'
+    upstream:
+      - 'mrst-ad-oo — for AD-OO simulation framework (compositional section)'
+    downstream:
+      - 'mrst-linear-solvers'
+    references: []
+
+  mrst-geothermal:
+    title: 'MRST Geothermal Skill'
+    cluster: 'energy_storage'
+    description: 'Geothermal heat transport and coupled thermo-hydro simulations.'
+    upstream:
+      - 'mrst-ad-oo — for AD-OO simulation framework'
+    downstream:
+      - 'mrst-geomechanics (thermal stress)'
+      - 'mrst-linear-solvers'
+    references: []
+
+  mrst-linear-solvers:
+    title: 'MRST Linear Solvers Skill'
+    cluster: 'solver_stack'
+    description: 'Linear solver configuration, CPR preconditioners, and performance acceleration.'
+    upstream:
+      - 'mrst-ad-oo — for AD-OO simulation framework'
+    downstream:
+      - 'Accelerates all AD-based skills'
+    references:
+      - title: 'Linear Solvers Best Practices'
+        file: 'references/linear_solvers_best_practices.md'
+
+  mrst-optimization:
+    title: 'MRST Optimization & Sensitivity Analysis Skill'
+    cluster: 'solver_stack'
+    description: 'Adjoint-based optimization and sensitivity analysis.'
+    upstream:
+      - 'mrst-ad-oo — for AD-OO simulation framework'
+    downstream:
+      - 'mrst-linear-solvers (for performance)'
+    references:
+      - title: 'Optimization Best Practices'
+        file: 'references/optimization_best_practices.md'
+
+  mrst-diagnostics:
+    title: 'MRST Flow Diagnostics, Upscaling & Multiscale Skill'
+    cluster: 'solver_stack'
+    description: 'Flow diagnostics (TOF, tracers), upscaling, and multiscale methods (MsRSB).'
+    upstream:
+      - 'mrst-gridding — for grid generation and data import'
+      - 'mrst-core-procedural — for incompressible flow setup'
+    downstream:
+      - 'Informs optimization decisions (mrst-optimization)'
+    references:
+      - title: 'Diagnostics Best Practices'
+        file: 'references/diagnostics_best_practices.md'
+
+  mrst-wells-facilities:
+    title: 'MRST Wells & Facilities Skill'
+    cluster: 'tooling_qa'
+    description: 'Complex well controls, multisegment wells, and surface facilities.'
+    upstream:
+      - 'mrst-gridding — for grid generation'
+      - 'mrst-ad-oo — for simulation framework'
+    downstream:
+      - 'mrst-optimization'
+    references:
+      - title: 'Wells & Facilities Best Practices'
+        file: 'references/wells_best_practices.md'
+
+  mrst-visualization:
+    title: 'MRST Visualization & Plotting'
+    cluster: 'tooling_qa'
+    description: 'Render 3D unstructured grids, trajectories, and interactive toolbars.'
+    upstream:
+      - 'mrst-gridding — for grid structures'
+      - 'mrst-ad-oo or mrst-core-procedural — to generate states and wellSols'
+    downstream:
+      - 'Specialized visualization across all simulation workflows'
+    references:
+      - title: 'Visualization Best Practices'
+        file: 'references/visualization_best_practices.md'
+
+  mrst-debugging:
+    title: 'MRST Debugging Loop'
+    cluster: 'tooling_qa'
+    description: 'Robust diagnosis and bug-fixing loop for MRST simulations.'
+    upstream:
+      - 'mrst-gridding — for minimal geometry setup'
+      - 'mrst-ad-oo — for model diagnostics'
+    downstream:
+      - 'Applies to all simulation workflows'
+    references:
+      - title: 'Debugging Best Practices'
+        file: 'references/debugging_best_practices.md'
+
+  mrst-testing:
+    title: 'MRST Testing Skill'
+    cluster: 'tooling_qa'
+    description: 'CI/CD-ready unit testing framework using matlab.unittest.'
+    upstream:
+      - 'mrst-custom-physics — for understanding custom models'
+      - 'mrst-ad-oo — for AD and OO simulation paradigms'
+    downstream:
+      - 'Quality assurance for custom simulator extensions'
+    references:
+      - title: 'MATLAB Unit Testing Best Practices'
+        file: 'references/matlab_unittest_best_practices.md'

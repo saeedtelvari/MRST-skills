@@ -12,15 +12,16 @@ Ran `/graphify` four times, incrementally growing a knowledge graph over MRST
 1. `core` + `autodiff` + `solvers` → 2,288 nodes, 1,260 edges
 2. + `multiscale` → 2,683 nodes, 1,139 edges, 2,183 communities
 3. + `co2lab` → 3,013 nodes, 1,260 edges, 2,457 communities
-4. + `visualization` (**current graph**) → **3,045 nodes, 1,292 edges, 2,461 communities**
+4. + `visualization` → 3,045 nodes, 1,292 edges, 2,461 communities
+5. + `model-io` + `modules` (all 26 modules) (**current full graph**) → **4,942 nodes, 2,259 edges, 3,930 communities (4,299 files, ~2.88M words)**
 
-All outputs live in `c:\MyFiles\MRST-skills\graphify-out\`:
+All outputs live in `D:\MRST-skills\graphify-out\`:
 - `graph.json` — raw graph data (GraphRAG-ready)
 - `graph.html` — interactive visualization
-- `GRAPH_REPORT.md` — full audit report (god nodes, surprising connections, hyperedges, all 2,461 communities with cohesion scores)
-- `.graphify_labels.json` — the 43 largest communities' human-readable labels (C0–C42)
-- `cost.json` — 6 runs total, all through subagent-dispatched semantic extraction (no Gemini key set, so $0 token cost recorded — cost tracking under-reports because subagent token usage isn't wired into `input_tokens`/`output_tokens`)
-- `.graphify_python`, `.graphify_root` — pinned interpreter (`C:\Users\st4014\AppData\Roaming\uv\tools\graphifyy\Scripts\python.exe`) and scan root (`C:\MyFiles\MRST-skills\database\MRST-main`)
+- `GRAPH_REPORT.md` — full audit report (god nodes, surprising connections, hyperedges, all 3,930 communities with cohesion scores)
+- `.graphify_labels.json` — community human-readable labels
+- `cost.json` — updated run history
+- `.graphify_python`, `.graphify_root` — pinned interpreter (`C:\Users\st4014\AppData\Roaming\uv\tools\graphifyy\Scripts\python.exe`) and scan root (`D:\MRST-skills\database\MRST-main`)
 
 ## Key findings surfaced in Run 4
 
