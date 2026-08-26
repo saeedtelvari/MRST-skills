@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mrst-skills"
+version = "1.0.0"
+description = "Agentic Skill Graph and Knowledge Engine for MATLAB Reservoir Simulation Toolbox (MRST)"
+readme = "README.md"
+authors = [
+    { name = "MRST-Skills Contributors" }
+]
+license = { text = "GPL-3.0-or-later" }
+requires-python = ">=3.9"
+dependencies = [
+    "pyyaml>=6.0"
+]
+
+[project.scripts]
+mrst-skills = "tools.installer:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tools*", "skills*"]

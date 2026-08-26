@@ -1,0 +1,48 @@
+# MRST Simulation Guidelines for Claude Code
+
+## 1. Startup & Execution Contract
+When running or writing MRST (MATLAB Reservoir Simulation Toolbox) scripts:
+- **Always** initialize with the workspace startup file:
+  ```matlab
+  run('database/MRST-main/startup.m');
+  ```
+- **Always** explicitly load required modules using `mrstModule add ...` (e.g., `mrstModule add ad-core ad-props ad-blackoil`).
+- **Never** assume unit conversions: All MRST internal calculations use standard SI units (m, Pa, s, kg). Use MRST unit constants (`barsa`, `milli*darcy`, `day`, `centi*poise`).
+
+## 2. Skill Catalog & Routing Table
+
+| Domain Cluster | Specialist Skill | Primary Intent / Keywords | Prerequisites |
+|----------------|------------------|---------------------------|---------------|
+| Core & Foundation | `mrst-gridding` | Build grids and import industry data files for MRST simulations. | None (root) |
+| Core & Foundation | `mrst-core-procedural` | Incompressible single-phase and two-phase flow simulation using procedural TPFA/IMPES. | mrst-gridding |
+| Core & Foundation | `mrst-ad-oo` | Fully implicit, automatic differentiation object-oriented reservoir simulation. | mrst-gridding |
+| Developer Frameworks | `mrst-ad-scripting` | Lightweight standalone PDE solvers with raw ADI variables. | mrst-gridding |
+| Developer Frameworks | `mrst-custom-physics` | Subclassing PhysicalModel and StateFunction for custom physics. | mrst-gridding, mrst-ad-oo |
+| Advanced Fluid & Coupled Physics | `mrst-eor` | Enhanced Oil Recovery simulations using Automatic Differentiation (Polymer & Surfactant). | mrst-gridding, mrst-ad-oo |
+| Advanced Fluid & Coupled Physics | `mrst-fractured-reservoirs` | Naturally fractured reservoir modeling via DFM, pEDFM, and NNCs. | mrst-gridding, mrst-core-procedural or mrst-ad-oo |
+| Advanced Fluid & Coupled Physics | `mrst-geomechanics` | Coupled flow-mechanics simulation using ad-mechanics and vemmech. | mrst-gridding, mrst-ad-oo |
+| Energy Transition & Storage | `mrst-co2-storage` | CO2 sequestration simulations using vertical equilibrium (VE) models and co2lab. | mrst-ad-oo |
+| Energy Transition & Storage | `mrst-hydrogen-storage` | Underground Hydrogen Storage simulations with gas mixing and hysteresis. | mrst-ad-oo |
+| Energy Transition & Storage | `mrst-geothermal` | Geothermal heat transport and coupled thermo-hydro simulations. | mrst-ad-oo |
+| Solver Stack & Optimization | `mrst-linear-solvers` | Linear solver configuration, CPR preconditioners, and performance acceleration. | mrst-ad-oo |
+| Solver Stack & Optimization | `mrst-optimization` | Adjoint-based optimization and sensitivity analysis. | mrst-ad-oo |
+| Solver Stack & Optimization | `mrst-diagnostics` | Flow diagnostics (TOF, tracers), upscaling, and multiscale methods (MsRSB). | mrst-gridding, mrst-core-procedural |
+| Diagnostics, Tooling & QA | `mrst-wells-facilities` | Complex well controls, multisegment wells, and surface facilities. | mrst-gridding, mrst-ad-oo |
+| Diagnostics, Tooling & QA | `mrst-visualization` | Render 3D unstructured grids, trajectories, and interactive toolbars. | mrst-gridding, mrst-ad-oo or mrst-core-procedural |
+| Diagnostics, Tooling & QA | `mrst-debugging` | Robust diagnosis and bug-fixing loop for MRST simulations. | mrst-gridding, mrst-ad-oo |
+| Diagnostics, Tooling & QA | `mrst-testing` | CI/CD-ready unit testing framework using matlab.unittest. | mrst-custom-physics, mrst-ad-oo |
+
+## 3. Multi-Skill Workflows (Recipes)
+- **Deck Import & Simulation**: `mrst-gridding` -> `mrst-ad-oo`
+- **CO2 Sequestration + Optimization**: `mrst-gridding` -> `mrst-co2-storage` -> `mrst-optimization`
+- **Fractured Reservoir + Fast Solvers**: `mrst-gridding` -> `mrst-fractured-reservoirs` -> `mrst-linear-solvers`
+- **Diagnostics & Sweep**: `mrst-gridding` -> `mrst-core-procedural` -> `mrst-diagnostics`
+- **EOR (Polymer/Surfactant)**: `mrst-gridding` -> `mrst-ad-oo` -> `mrst-eor`
+- **Custom Physics & Equations**: `mrst-ad-oo` -> `mrst-custom-physics` -> `mrst-testing`
+- **Debugging & Triage**: `mrst-debugging` (max 3 miniaturized fix cycles)
+
+## 4. Knowledge Retrieval
+To lookup exact MRST functions and invariants from the knowledge base:
+```bash
+python -m tools.mrst_index.search_index keyword "<functionName>"
+```

@@ -1,16 +1,16 @@
-# Graph Report - MRST-skills  (2026-08-26)
+# Graph Report - MRST-skills  (2026-08-24)
 
 ## Corpus Check
-- 112 files · ~51,958 words
+- 106 files · ~48,108 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 955 nodes · 958 edges · 148 communities (131 shown, 17 thin omitted)
-- Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 118 edges (avg confidence: 0.86)
+- 903 nodes · 870 edges · 140 communities (123 shown, 17 thin omitted)
+- Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 118 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0d4e428f`
+- Built from commit: `52a75779`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -122,13 +122,6 @@
 - [[_COMMUNITY_Community 134|Community 134]]
 - [[_COMMUNITY_Community 135|Community 135]]
 - [[_COMMUNITY_Community 136|Community 136]]
-- [[_COMMUNITY_Community 138|Community 138]]
-- [[_COMMUNITY_Community 139|Community 139]]
-- [[_COMMUNITY_Community 140|Community 140]]
-- [[_COMMUNITY_Community 141|Community 141]]
-- [[_COMMUNITY_Community 142|Community 142]]
-- [[_COMMUNITY_Community 143|Community 143]]
-- [[_COMMUNITY_Community 145|Community 145]]
 - [[_COMMUNITY_Community 462 Database Mrst Main Modules Book Examples Mrst Logo|Community 462: Database Mrst Main Modules Book Examples Mrst Logo]]
 - [[_COMMUNITY_Community 1450 Modules Ad Scal Examples Settings Case5 Config|Community 1450: Modules Ad Scal Examples Settings Case5 Config]]
 
@@ -141,8 +134,8 @@
 6. `fvbiot Poro-Mechanics Module` - 11 edges
 7. `/graphify` - 10 edges
 8. `MRST Knowledge Database Handoff` - 10 edges
-9. `main()` - 9 edges
-10. `Common Multi-Skill Recipes` - 9 edges
+9. `Common Multi-Skill Recipes` - 9 edges
+10. `MRST Dual-Porosity Module Overview Document` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Automatic Differentiation Library (Core)` --semantically_similar_to--> `AD-Core Module (AD-OO Framework)`  [INFERRED] [semantically similar]
@@ -173,7 +166,7 @@
 - **MRST Dual Porosity Reservoir and Transfer Model Structure** — database_mrst_main_modules_dual_porosity_readme_dualporosityreservoirmodel, database_mrst_main_modules_dual_porosity_readme_transferfunction, database_mrst_main_modules_dual_porosity_readme_shapefactor, database_mrst_main_modules_dual_porosity_readme_kazemi_1976 [EXTRACTED 1.00]
 - **MATCH Surface Complexation & Speciation Validation Suite** — database_mrst_main_modules_geochemistry_documentation_main_phreeqc_comparison, database_mrst_main_modules_geochemistry_documentation_figures_aqueousspeciation_plot, database_mrst_main_modules_geochemistry_documentation_figures_exchange_plot, database_mrst_main_modules_geochemistry_documentation_figures_langmuirtest_plot, database_mrst_main_modules_geochemistry_documentation_figures_triplelayertest_plot [EXTRACTED 1.00]
 
-## Communities (148 total, 17 thin omitted)
+## Communities (140 total, 17 thin omitted)
 
 ### Community 0 - "MEX Mixed Operator Functions"
 Cohesion: 0.15
@@ -260,7 +253,7 @@ Cohesion: 0.15
 Nodes (11): `addBC` Structural Invariants, CO2 Storage Best Practices: Open Aquifer Boundary Conditions, Framework Traps & Pitfalls, Open Aquifer Paradigms, Agent Instructions: Initialization, Agent Instructions: Knowledge Retrieval, Core Paradigms, Cross-References (+3 more)
 
 ### Community 22 - "Relative Permeability Upscaling Data"
-Cohesion: 0.25
+Cohesion: 0.22
 Nodes (8): Agent Instructions: Initialization, Agent Instructions: Knowledge Retrieval, Core Paradigms, Cross-References, MRST Core Procedural Simulator Skill, Prerequisites, References & Best Practices, Standard Core Procedural Workflow
 
 ### Community 23 - "MRST GUI Data Display Controls"
@@ -359,10 +352,6 @@ Nodes (7): Ashworth and Doster Dual-Continuum Geomechanics Framework (2019), Dua
 Cohesion: 0.33
 Nodes (7): Numerical Modeling of Bio-Reactive Transport During UHS (2025), H2-Biochem Hydrogen Storage Module, Methanogenesis Bio-Reaction Model, Soreide-Whitson EoS for H2 Mixtures, ePC-Saft & Henry-Setschnow Solubility Tables, h2store Aquifer Hydrogen Storage Module, Redlich-Kwong EoS for H2-Brine Systems
 
-### Community 50 - "Community 50: Solvers Mpfa Utils Matrixblocksfromsparse C Utils Matrixblocksfromsparse, Utils Matrixblocksfromsparse Args Ok"
-Cohesion: 0.40
-Nodes (4): AGENTS.md - MRST Agentic Ecosystem Instructions, Knowledge Base & Search, Skill Routing, Universal MRST Execution Contract
-
 ### Community 53 - "Community 53: Core Utils Dataset Manager Datasets Img Blackoilpolymer2D, Core Utils Dataset Manager Datasets Img Caseb4"
 Cohesion: 0.53
 Nodes (6): Black Oil Polymer 2D - Injection/Production Well Simulation, Case B4 - Dual-Block Faulted Reservoir Grid, SPE1 - SPE Comparative Solution Project Case 1 Black Oil Benchmark, SPE10 - SPE 10th Comparative Solution Project Heterogeneous Permeability Benchmark, SPE3 - SPE Comparative Solution Project Case 3 Gas Injection Benchmark, SPE9 - SPE 9th Comparative Solution Project Multi-Well Black Oil Benchmark
@@ -460,8 +449,8 @@ Cohesion: 0.67
 Nodes (3): 3D Scene Lighting Controls, Lock Color Axis / Colormap Range, Logarithmic Base-10 Scale Toggle
 
 ### Community 107 - "Community 107"
-Cohesion: 0.20
-Nodes (10): 1. Custom `StateFunction`, 2. Subclassing `PhysicalModel` / `TwoPhaseOilWaterModel`, 3. Defining `PrimaryVariables`, 4. Overriding `getEquations`, Agent Instructions, Core Paradigms, Cross-References, MRST Custom Physics Skill (+2 more)
+Cohesion: 0.13
+Nodes (13): 1. `StateFunctionGrouping` Instantiation Trap, 2. Primary Variable Dependency Rule, MRST Custom Physics Best Practices & Framework Traps, 1. Custom `StateFunction`, 2. Subclassing `PhysicalModel` / `TwoPhaseOilWaterModel`, 3. Defining `PrimaryVariables`, 4. Overriding `getEquations`, Agent Instructions (+5 more)
 
 ### Community 108 - "Community 108"
 Cohesion: 0.25
@@ -500,11 +489,11 @@ Cohesion: 0.20
 Nodes (9): 1. Multi-Segment Wells (MSW), 2. Group Controls, Agent Instructions: Initialization, Agent Instructions: Knowledge Retrieval, Core Paradigms, Cross-References, MRST Wells and Facilities Skill, Prerequisites (+1 more)
 
 ### Community 122 - "Community 122"
-Cohesion: 0.25
+Cohesion: 0.22
 Nodes (8): Agent Instructions: Initialization, Agent Instructions: Knowledge Retrieval, Best Practices, Core Paradigms, Cross-References, MRST Testing Skill, Prerequisites, Standard Workflows
 
 ### Community 123 - "Community 123"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (7): Agent Instructions: Initialization, Agent Instructions: Knowledge Retrieval, Core Paradigms, Cross-References, MRST EOR Skill, Prerequisites, Standard Polymer Workflow
 
 ### Community 124 - "Community 124"
@@ -547,44 +536,18 @@ Nodes (4): Architectural Decision Rule, Procedural Transport Best Practices: Exp
 Cohesion: 0.50
 Nodes (3): Dual-Porosity (DPDP) Matrix-Fracture Coupling Paradigms, Fractured Reservoirs Best Practices, Non-Neighboring Connections (NNCs) Structural Invariants
 
-### Community 138 - "Community 138"
-Cohesion: 0.32
-Nodes (15): bundle_skills(), copy_skills_to(), generate_claude_instructions(), generate_codex_system_prompt(), generate_cursor_rule(), get_home_dir(), install_antigravity(), install_claude() (+7 more)
-
-### Community 139 - "Community 139"
-Cohesion: 0.14
-Nodes (14): 📦 Developer Guide: Extending the Ecosystem, For Anthropic Claude Code:, For ChatGPT / OpenAI Codex / Web Agents:, For Cursor / Windsurf / GitHub Copilot:, For Google Antigravity / Gemini CLI:, 📄 License, MRST-Skills: Autonomous Reservoir Simulation Agentic Ecosystem, 🛠️ Multi-Skill Workflows (Recipes) (+6 more)
-
-### Community 140 - "Community 140"
-Cohesion: 0.33
-Nodes (5): 1. Startup & Execution Contract, 2. Skill Catalog & Routing Table, 3. Multi-Skill Workflows (Recipes), 4. Knowledge Retrieval, MRST Simulation Guidelines for Claude Code
-
-### Community 141 - "Community 141"
-Cohesion: 0.33
-Nodes (5): 1. Startup & Execution Contract, 2. Skill Catalog & Routing Table, 3. Multi-Skill Workflows (Recipes), 4. Knowledge Retrieval, MRST Simulation Guidelines for Claude Code
-
-### Community 142 - "Community 142"
-Cohesion: 0.40
-Nodes (4): Debugging Discipline:, Domain Capabilities & Skill Routing:, Fundamental Rules:, MRST Autonomous Reservoir Simulation Assistant - System Prompt
-
-### Community 143 - "Community 143"
-Cohesion: 0.40
-Nodes (3): 1. `StateFunctionGrouping` Instantiation Trap, 2. Primary Variable Dependency Rule, MRST Custom Physics Best Practices & Framework Traps
-
 ## Knowledge Gaps
-- **537 isolated node(s):** `built_at`, `total_book_chunks`, `total_source_chunks`, `total_entities`, `total_relations` (+532 more)
+- **512 isolated node(s):** `built_at`, `total_book_chunks`, `total_source_chunks`, `total_entities`, `total_relations` (+507 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `MRST-Skills: Autonomous Reservoir Simulation Agentic Ecosystem` connect `Community 139` to `Community 144`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `ad-micp: Microbially Induced Calcite Precipitation Module` (e.g. with `ad-micp Bug Report Template` and `ad-micp Feature Request Template`) actually correct?**
   _`ad-micp: Microbially Induced Calcite Precipitation Module` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `built_at`, `total_book_chunks`, `total_source_chunks` to the rest of the system?**
-  _546 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _521 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `MEX Sparse Array Types` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._
 - **Should `MEX Block Matrix Storage Types` be split into smaller, more focused modules?**
@@ -593,3 +556,5 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.06439393939393939 - nodes in this community are weakly interconnected._
 - **Should `VEmex MATLAB-C++ Struct Bridge` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
+- **Should `AD Module Documentation` be split into smaller, more focused modules?**
+  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._

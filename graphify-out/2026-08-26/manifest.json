@@ -21685,8 +21685,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1787745608.625478,
-    "ast_hash": "9c5a528fd04667ec8d9f55c9556b21a6",
+    "mtime": 1787228809.6281986,
+    "ast_hash": "752aa83aa64361ac32860f882dcff932",
     "semantic_hash": ""
   },
   "ad_oo_info.txt": {
@@ -22057,36 +22057,6 @@
   "skills_manifest.yaml": {
     "mtime": 1787527926.3658564,
     "ast_hash": "cfb4e3acfed99b3aa30b2012a39ba385",
-    "semantic_hash": ""
-  },
-  "pyproject.toml": {
-    "mtime": 1787745423.8300836,
-    "ast_hash": "dc3fb4a7b230c347be46693b128f5b66",
-    "semantic_hash": ""
-  },
-  "tools/installer.py": {
-    "mtime": 1787745608.3164594,
-    "ast_hash": "ec3e4b39af6deaba79dd550a2371f92e",
-    "semantic_hash": ""
-  },
-  ".github/copilot-instructions.md": {
-    "mtime": 1787745608.6069098,
-    "ast_hash": "817840c0edbd71c706aa1792b9d2d8c0",
-    "semantic_hash": ""
-  },
-  "CLAUDE.md": {
-    "mtime": 1787745608.5320947,
-    "ast_hash": "817840c0edbd71c706aa1792b9d2d8c0",
-    "semantic_hash": ""
-  },
-  "CODEX.md": {
-    "mtime": 1787745608.616993,
-    "ast_hash": "3283a27dfea29836f7621e6f4687ab48",
-    "semantic_hash": ""
-  },
-  "README.md": {
-    "mtime": 1787745608.625994,
-    "ast_hash": "106aaef1eaaaac7eeaefaf4396dd7b89",
     "semantic_hash": ""
   }
 }

@@ -1,12 +1,37 @@
-## graphify
+# AGENTS.md - MRST Agentic Ecosystem Instructions
 
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+## Universal MRST Execution Contract
+Whenever you write or run MATLAB scripts for reservoir simulation:
+1. **Startup**: Always begin scripts with `run('database/MRST-main/startup.m');`
+2. **Modules**: Explicitly load needed modules with `mrstModule add <modules>`.
+3. **SI Units**: MRST operates strictly in SI units internally (meters, Pascals, seconds, kg). Use MRST unit conversion constants (`barsa`, `milli*darcy`, `day`, `centi*poise`, `meter`). Never treat raw numbers as field units.
+4. **StateFunctions**: In custom physical properties, specify grouping for primary variables: `gp = gp.dependsOn({'pressure'}, 'state');`.
+5. **Polymer Adsorption**: Initialize `state0.cpmax = zeros(G.cells.num, 1);` for irreversible adsorption models.
 
-When the user types `/graphify`, invoke the `skill` tool with `skill: "graphify"` before doing anything else.
+## Skill Routing
+For any MRST simulation task, consult the specialist skill:
+- **Grid Generation & Eclipse Import**: `mrst-gridding`
+- **Incompressible Flow (TPFA/IMPES)**: `mrst-core-procedural`
+- **Black-Oil & Compositional Flow (AD-OO)**: `mrst-ad-oo`
+- **CO2 Storage & Vertical Equilibrium**: `mrst-co2-storage`
+- **Underground Hydrogen Storage**: `mrst-hydrogen-storage`
+- **Geothermal Heat Transport**: `mrst-geothermal`
+- **Naturally Fractured Reservoirs (DFM/pEDFM/NNC)**: `mrst-fractured-reservoirs`
+- **Coupled Geomechanics (Biot/VEM)**: `mrst-geomechanics`
+- **Enhanced Oil Recovery (Polymer/Surfactant)**: `mrst-eor`
+- **Flow Diagnostics, Upscaling & Multiscale (MsRSB)**: `mrst-diagnostics`
+- **Adjoint Optimization & Well Controls**: `mrst-optimization`
+- **Linear Solvers & CPR Preconditioners**: `mrst-linear-solvers`
+- **Wells & Surface Facilities**: `mrst-wells-facilities`
+- **Visualization & Plotting (mrst-gui)**: `mrst-visualization`
+- **AD Scripting & Raw ADI Prototyping**: `mrst-ad-scripting`
+- **Custom Physics & Model Subclassing**: `mrst-custom-physics`
+- **Debugging & Miniaturized Triage Loop**: `mrst-debugging`
+- **Unit Testing Framework (matlab.unittest)**: `mrst-testing`
 
-Rules:
-- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
-- Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
-- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
-- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
-- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+## Knowledge Base & Search
+- To search textbook chunks and source code:
+  `python -m tools.mrst_index.search_index keyword "<query>"`
+- To inspect code graph relationships:
+  `graphify query "<question>"` | `graphify path "<A>" "<B>"` | `graphify explain "<concept>"`
+- After modifying code, run `graphify update .` to keep the graph current.
