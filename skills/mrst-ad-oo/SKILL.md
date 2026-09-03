@@ -32,25 +32,15 @@ mrstModule add ad-core ad-props ad-blackoil
 ```
 *(Add other modules like `ad-eor` or `compositional` for EOS models if the specific physics require them).*
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-If you are unsure about the parameters of an AD-OO function, class, or the theoretical formulation, use the pre-built AI knowledge tools rather than guessing:
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-1. **Search the Textbooks and Source Code**:
-   Run the following Python CLI to query the FTS5 knowledge base:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "simulateScheduleAD"
-   ```
-   *Available modes*: `keyword`, `lookup`, `explain`, `hybrid`.
+1. **Curated Reference Guide**:
+   Read `skills/mrst-ad-oo/references/ad_oo_best_practices.md` (AD-OO Best Practices) for exact function signatures, physics formulations, and gotchas.
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   Use `graphify` to understand how modules interact:
-   - `graphify query "How does NonLinearSolver interact with PhysicalModel?"`
-   - `graphify path "simulateScheduleAD.m" "ThreePhaseBlackOilModel.m"`
-   - `graphify explain "BasicAD"`
-
-   If you need deep codebase navigation, you can also spawn the graphify subagent by invoking `skill: "graphify"`.
-
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-ad-oo/examples/` for canonical setups and workflows.
 ## Standard AD-OO Workflow
 
 A standard script using this paradigm usually follows this structural shape:

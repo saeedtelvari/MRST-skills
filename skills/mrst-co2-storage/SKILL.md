@@ -30,21 +30,15 @@ run('database/MRST-main/startup.m');
 mrstModule add co2lab ad-core ad-blackoil
 ```
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-These modules have highly specific physics formulations. Do not guess functions. Use the AI knowledge tools:
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-1. **Search the Textbooks and Source Code**:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "trapAnalysis"
-   python -m tools.mrst_index.search_index keyword "co2lab"
-   ```
+1. **Curated Reference Guide**:
+   Read `skills/mrst-co2-storage/references/co2_storage_best_practices.md` (CO2 Storage Best Practices) for exact function signatures, physics formulations, and gotchas.
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   Use `graphify` to explore the interactions between basic AD and the `co2lab` VE models.
-   - `graphify query "How to set up a VE grid for CO2 storage?"`
-   - `graphify path "trapAnalysis.m" "simulateScheduleAD.m"`
-
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-co2-storage/examples/` for canonical setups and workflows.
 ## Standard CO2 VE Workflow
 
 1. **Top-Surface Grid**: 

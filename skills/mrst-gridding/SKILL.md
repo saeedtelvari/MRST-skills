@@ -58,22 +58,15 @@ Modules to load:
 - Coarsening: `coarsegrid`
 - Geometry acceleration: `libgeometry` (optional, MEX-compiled)
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-If you are unsure about the parameters of a gridding function, class, or the Eclipse data format, use the pre-built AI knowledge tools rather than guessing:
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-1. **Search the Textbooks and Source Code**:
-   Run the following Python CLI to query the FTS5 knowledge base:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "initEclipseGrid"
-   ```
-   *Available modes*: `keyword`, `lookup`, `explain`, `hybrid`.
+1. **Curated Reference Guide**:
+   Read `skills/mrst-gridding/references/gridding_best_practices.md` (Gridding Best Practices) for exact function signatures, physics formulations, and gotchas.
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   Use `graphify` to understand how modules interact:
-   - `graphify query "How does readEclipseDeck connect to initEclipseGrid?"`
-   - `graphify explain "computeGeometry"`
-
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-gridding/examples/` for canonical setups and workflows.
 ## Standard Workflows
 
 ### Workflow A: Cartesian Grid (simplest)

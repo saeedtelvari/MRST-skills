@@ -44,21 +44,15 @@ mrstModule add shale ad-core ad-props
 mrstModule add upr coarsegrid
 ```
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-1. **Search the Textbooks and Source Code**:
-   Run the following Python CLI to query the FTS5 knowledge base:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "dfm"
-   python -m tools.mrst_index.search_index keyword "pEDFM"
-   python -m tools.mrst_index.search_index keyword "NNC"
-   ```
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   Use `graphify` to understand how modules interact:
-   - `graphify query "How do DFM and pEDFM differ in MRST?"`
-   - `graphify explain "shale module"`
+1. **Curated Reference Guide**:
+   Read `skills/mrst-fractured-reservoirs/references/fractures_best_practices.md` (Fractures Best Practices) for exact function signatures, physics formulations, and gotchas.
 
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-fractured-reservoirs/examples/` for canonical setups and workflows.
 ## Standard Workflows
 
 ### Workflow A: DFM with Explicit Fracture Grid

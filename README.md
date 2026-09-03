@@ -98,22 +98,16 @@ Every autonomous agent writing or running MRST simulations must adhere to the **
 
 ---
 
-## 🔎 Three-Tier Knowledge Retrieval Stack
+## 📚 Self-Contained Knowledge Architecture
 
-When you or an AI agent needs deep API specifications or invariant details:
+Every skill in the ecosystem is packaged with full domain knowledge, eliminating external heavy database or indexing dependencies:
 
-1. **FTS5 Full-Text Search Engine**:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "computeTOFandTracer"
-   python -m tools.mrst_index.search_index keyword "simulateScheduleAD"
-   ```
-2. **Codebase GraphRAG (`graphify`)**:
-   ```bash
-   graphify query "How does adjoint optimization compute gradients?"
-   graphify path "CustomTwoPhaseModel" "simulateScheduleAD"
-   ```
-3. **Curated Reference Guides**:
-   Every skill directory contains a `references/*_best_practices.md` guide focusing purely on framework traps and architectural invariants.
+1. **Curated Reference Guides (`references/*_best_practices.md`)**:
+   Every skill directory contains exhaustive documentation of mathematical formulations, MRST function APIs, architectural invariants, and critical gotchas (e.g., AD variable groupings, geometry lifecycles, and preconditioner tuning).
+2. **Executable Reference Examples (`examples/*.m`)**:
+   Complete, standalone, minimal simulation scripts demonstrating canonical setup, solver invocation, and post-processing without external boilerplate.
+3. **Declarative Skill Taxonomy & Router (`skills_manifest.yaml` & `skills/mrst/SKILL.md`)**:
+   Structured metadata graph mapping high-level user simulation intents directly to prerequisite dependency DAGs.
 
 ---
 
@@ -135,10 +129,6 @@ To add or modify skills:
 2. Validate and synchronize cross-references:
    ```bash
    python update_skills.py
-   ```
-3. Update the knowledge graph:
-   ```bash
-   graphify update .
    ```
 
 ---

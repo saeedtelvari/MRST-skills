@@ -33,18 +33,15 @@ run('database/MRST-main/startup.m');
 mrstModule add ad-core ad-props ad-blackoil ad-eor
 ```
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-EOR physics (like adsorption, shear-thinning, interfacial tension) have deep theoretical and implementational nuance. **Do not hallucinate physics parameters.** 
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-Always consult the reference documentation provided in this skill:
-- **`references/eor_best_practices.md`**: Contains critical invariants, structural rules, and best practices for setting up Polymer and Surfactant models in MRST.
+1. **Curated Reference Guide**:
+   Read `skills/mrst-eor/references/eor_best_practices.md` (EOR Best Practices) for exact function signatures, physics formulations, and gotchas.
 
-You can also search the MRST source or documentation using the AI tools:
-```bash
-python -m tools.mrst_index.search_index keyword "equationsOilWaterPolymer"
-```
-
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-eor/examples/` for canonical setups and workflows.
 ## Standard Polymer Workflow
 
 A standard script using this paradigm follows this structural shape:

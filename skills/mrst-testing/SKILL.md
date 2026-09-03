@@ -34,21 +34,15 @@ run('database/MRST-main/startup.m');
 mrstModule add ad-core ad-props ad-blackoil
 ```
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-If you are unsure about the parameters of `matlab.unittest` or MRST core mechanics:
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-1. **Search the Textbooks and Source Code**:
-   Run the following Python CLI to query the FTS5 knowledge base:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "matlab.unittest.TestCase"
-   ```
+1. **Curated Reference Guide**:
+   Read `skills/mrst-testing/references/matlab_unittest_best_practices.md` (MATLAB Unit Testing Best Practices) for exact function signatures, physics formulations, and gotchas.
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   Use `graphify` to explore the codebase.
-   - `graphify query "How does mrst test Jacobian gradients?"`
-   - `graphify path "CustomTwoPhaseModel" "simulateScheduleAD"`
-
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-testing/examples/` for canonical setups and workflows.
 ## Standard Workflows
 
 A standard testing workflow involves writing a test suite and executing it:

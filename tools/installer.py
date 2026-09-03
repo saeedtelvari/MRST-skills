@@ -84,12 +84,11 @@ def generate_claude_instructions():
         '- **EOR (Polymer/Surfactant)**: `mrst-gridding` -> `mrst-ad-oo` -> `mrst-eor`',
         '- **Custom Physics & Equations**: `mrst-ad-oo` -> `mrst-custom-physics` -> `mrst-testing`',
         '- **Debugging & Triage**: `mrst-debugging` (max 3 miniaturized fix cycles)',
-        '',
-        '## 4. Knowledge Retrieval',
-        'To lookup exact MRST functions and invariants from the knowledge base:',
-        '```bash',
-        'python -m tools.mrst_index.search_index keyword "<functionName>"',
-        '```'
+        '## 4. Knowledge Retrieval & References',
+        'When looking up MRST equations, API signatures, or framework traps:',
+        '- Consult the skill reference guide: `skills/<skill-name>/references/*_best_practices.md`',
+        '- Inspect verified executable examples: `skills/<skill-name>/examples/*.m`',
+        '- Check upstream skill prerequisites in `skills_manifest.yaml`'
     ])
     return '\n'.join(lines) + '\n'
 

@@ -43,19 +43,15 @@ run('database/MRST-main/startup.m');
 mrstModule add ad-core ad-props ad-blackoil optimization
 ```
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-1. **Search the Textbooks and Source Code**:
-   Run the following Python CLI to query the FTS5 knowledge base:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "computeGradientAdjointAD"
-   ```
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   Use `graphify` to understand how modules interact:
-   - `graphify query "How does adjoint optimization work in MRST?"`
-   - `graphify path "evalObjective" "simulateScheduleAD"`
+1. **Curated Reference Guide**:
+   Read `skills/mrst-optimization/references/optimization_best_practices.md` (Optimization Best Practices) for exact function signatures, physics formulations, and gotchas.
 
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-optimization/examples/` for canonical setups and workflows.
 ## Standard Optimization Workflow
 
 1. **Set up forward simulation** (grid, model, schedule, state0) — use `mrst-ad-oo`.

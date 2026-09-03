@@ -53,14 +53,15 @@ mrstModule add upscaling coarsegrid incomp
 mrstModule add msrsb coarsegrid incomp
 ```
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-When using MRST diagnostic or upscaling features, research specific functions via the local knowledge base:
-```bash
-python -m tools.mrst_index.search_index keyword "computeTOFandTracer"
-python -m tools.mrst_index.search_index keyword "upscalePerm"
-```
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
+1. **Curated Reference Guide**:
+   Read `skills/mrst-diagnostics/references/diagnostics_best_practices.md` (Diagnostics Best Practices) for exact function signatures, physics formulations, and gotchas.
+
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-diagnostics/examples/` for canonical setups and workflows.
 ## Standard Workflows
 
 ### Workflow A: Flow Diagnostics

@@ -34,21 +34,15 @@ mrstModule add linearsolvers ad-core
 ```
 *(Optionally add `agmg` if available).*
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-Configuring solver options correctly is non-trivial. Use the AI knowledge tools:
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-1. **Search the Textbooks and Source Code**:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "CPRSolverAD"
-   python -m tools.mrst_index.search_index keyword "ILU0"
-   ```
+1. **Curated Reference Guide**:
+   Read `skills/mrst-linear-solvers/references/linear_solvers_best_practices.md` (Linear Solvers Best Practices) for exact function signatures, physics formulations, and gotchas.
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   Use `graphify` to explore the interactions:
-   - `graphify query "How does CPRSolverAD connect to LinearSolverAD?"`
-   - `graphify explain "LinearSolverAD"`
-
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-linear-solvers/examples/` for canonical setups and workflows.
 ## Standard Linear Solver Workflow
 
 Instead of passing just `NonLinearSolver()`, you configure a linear solver backend and pass it to the nonlinear solver.

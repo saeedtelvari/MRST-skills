@@ -33,19 +33,15 @@ run('database/MRST-main/startup.m');
 mrstModule add ad-core ad-props geothermal
 ```
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-Use the AI knowledge tools:
+Always consult the verified examples and upstream documentation rather than guessing API parameters:
 
-1. **Search the Textbooks and Source Code**:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "geothermal"
-   ```
+1. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-geothermal/examples/` for canonical setups and workflows.
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   - `graphify query "How to set up a thermo-hydro model?"`
-   - `graphify path "GenericADModel.m" "geothermal"`
-
+2. **Upstream Reference**:
+   Consult `skills/mrst-ad-oo/references/ad_oo_best_practices.md` for general AD-OO simulation guidelines and invariants.
 ## Standard Geothermal Workflow
 
 1. **Grid & Rock**: Include rock thermal properties using `addThermalRockProps`.

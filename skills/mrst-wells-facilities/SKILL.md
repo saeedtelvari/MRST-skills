@@ -37,20 +37,15 @@ mrstModule add geothermal
 mrstModule add deckformat
 ```
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-If you are unsure about the parameters of `VFPTable`, `convert2MSWell`, or `FacilityModel`, use the tools:
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-1. **Search the Textbooks and Source Code**:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "convert2MSWell"
-   python -m tools.mrst_index.search_index keyword "VFPTable"
-   ```
+1. **Curated Reference Guide**:
+   Read `skills/mrst-wells-facilities/references/wells_best_practices.md` (Wells & Facilities Best Practices) for exact function signatures, physics formulations, and gotchas.
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   - `graphify query "How do I set up group controls using addFacilityGroup?"`
-   - `graphify explain "FacilityModel"`
-
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-wells-facilities/examples/` for canonical setups and workflows.
 ## Standard Workflows
 
 ### 1. Multi-Segment Wells (MSW)

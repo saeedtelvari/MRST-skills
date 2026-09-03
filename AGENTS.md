@@ -29,9 +29,8 @@ For any MRST simulation task, consult the specialist skill:
 - **Debugging & Miniaturized Triage Loop**: `mrst-debugging`
 - **Unit Testing Framework (matlab.unittest)**: `mrst-testing`
 
-## Knowledge Base & Search
-- To search textbook chunks and source code:
-  `python -m tools.mrst_index.search_index keyword "<query>"`
-- To inspect code graph relationships:
-  `graphify query "<question>"` | `graphify path "<A>" "<B>"` | `graphify explain "<concept>"`
-- After modifying code, run `graphify update .` to keep the graph current.
+## Knowledge Base & Architecture
+- **Curated Best Practices**: Each skill folder contains `references/*_best_practices.md` detailing mathematical formulations, APIs, and framework traps.
+- **Runnable Examples**: Each skill folder contains `examples/*.m` with minimal, verified simulation scripts.
+- **Skill Routing & Dependencies**: Consult `skills_manifest.yaml` or `skills/mrst/SKILL.md` for upstream and downstream skill DAG connections.
+

@@ -128,23 +128,12 @@ When the user's intent is ambiguous, use these rules:
 | "Set up a simulation" (too vague) | Ask what physics: incompressible → `mrst-core-procedural`, compressible/multiphase → `mrst-ad-oo`. |
 | "Compositional simulation" | If general (gas condensate, volatile oil, miscible flooding) → `mrst-ad-oo` compositional section. If specifically hydrogen → `mrst-hydrogen-storage`. |
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-All specialist skills share these knowledge tools. Use them when you need API details:
-
-1. **FTS5 Knowledge Base** (textbooks + source code):
-   ```bash
-   python -m tools.mrst_index.search_index keyword "<term>"
-   ```
-   Modes: `keyword`, `lookup`, `explain`, `hybrid`.
-
-2. **Codebase Graph (GraphRAG)**:
-   ```
-   graphify query "<question>"
-   graphify path "<source>" "<target>"
-   graphify explain "<concept>"
-   ```
-
+All specialist skills in this ecosystem are self-contained with dedicated reference guides and executable examples:
+- **Reference Guides**: Consult `skills/<skill-name>/references/*_best_practices.md` for in-depth API signatures, physical invariants, and framework traps.
+- **Runnable Examples**: Inspect `skills/<skill-name>/examples/*.m` for verified, working simulation patterns.
+- **Skill Manifest**: Check `skills_manifest.yaml` for upstream/downstream prerequisites and module dependencies.
 ## Agent Instructions: Initialization
 
 Every MRST script must begin with:

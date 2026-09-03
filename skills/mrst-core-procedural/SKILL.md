@@ -32,25 +32,15 @@ mrstModule add incomp
 ```
 *(Add other modules like `mimetic` or `libgeometry` if the specific physics or grids require them).*
 
-## Agent Instructions: Knowledge Retrieval
+## Agent Instructions: Reference Documentation & Examples
 
-If you are unsure about the parameters of a core function, class, or the theoretical formulation, use the pre-built AI knowledge tools rather than guessing:
+Always consult the curated reference documentation and verified examples in this skill rather than guessing API parameters:
 
-1. **Search the Textbooks and Source Code**:
-   Run the following Python CLI to query the FTS5 knowledge base:
-   ```bash
-   python -m tools.mrst_index.search_index keyword "incompTPFA"
-   ```
-   *Available modes*: `keyword`, `lookup`, `explain`, `hybrid`.
+1. **Curated Reference Guide**:
+   Read `skills/mrst-core-procedural/references/procedural_best_practices.md` (Procedural Best Practices) for exact function signatures, physics formulations, and gotchas.
 
-2. **Navigate the Codebase Graph (GraphRAG)**:
-   Use `graphify` to understand how modules interact:
-   - `graphify query "What are the required inputs for implicitTransport?"`
-   - `graphify path "incompTPFA.m" "implicitTransport.m"`
-   - `graphify explain "Transmissibility"`
-
-   If you need deep codebase navigation, you can also spawn the graphify subagent by invoking `skill: "graphify"`.
-
+2. **Executable Examples**:
+   Refer to verified, runnable scripts in `skills/mrst-core-procedural/examples/` for canonical setups and workflows.
 ## Standard Core Procedural Workflow
 
 A standard script using this paradigm usually follows this structural shape in a time-stepping loop:
