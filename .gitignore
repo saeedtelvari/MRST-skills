@@ -1,6 +1,25 @@
-/database
+# MRST Database & Knowledge Indexes
+/database/
+/output/
+/graphify-out/
+
+# Scratch tickets, dumps & handoffs
+/tickets/
+*_info.txt
+*-handoff.md
+wayfinder-map.md
+
+# Intermediate indexer tools (keep tools/installer.py)
+/tools/mrst_index/
+
+# Python build artifacts
 __pycache__/
 *.pyc
 *.egg-info/
+.pytest_cache/
+
+# Local IDE / agent skill copies & caches
 .claude/skills/
 .gemini/config/skills/
+.codex/
+

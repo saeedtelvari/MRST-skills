@@ -1,2 +1,0 @@
-⌣儠敵瑳潩੮䠊睯猠潨汵⁤桴⁥前呓匠楫汬吠硡湯浯⁹敢搠癩摩摥‿桓畯摬眠⁥慨敶愠映睥洠湯汯瑩楨⁣歳汩獬⠠⹥⹧‬浠獲⵴摡漭息‬浠獲⵴摡慶据摥猭汯敶獲⥠漠⁲牧湡汵牡猠楫汬⁳数⁲潭畤敬⠠⹥⹧‬浠獲⵴汢捡潫汩Ⱡ怠牭瑳挭浯潰楳楴湯污Ⱡ怠牭瑳瀭摥浦⥠ਿ圊⁥敮摥琠⁯敲楶睥琠敨攠楸瑳湩⁧湩潦⠠浠獲⵴湫睯敬杤ⵥ慤慴慢敳栭湡潤晦洮恤‬慠彤潯楟普⹯硴恴‬杠慲桰晩⵹牭瑳栭湡潤晦洮恤 湡⁤敤楣敤琠敨戠畯摮牡敩⁳潴洠硡浩穩⁥条湥⁴晥敦瑣癩湥獥⁳楷桴畯⁴癯牥桷汥業杮琠敨⁭楷桴琠潯洠湡⁹潴汯⽳湩瑳畲瑣潩獮ਮ⨊䰪扡汥⩳㨪怠慷晹湩敤㩲敲敳牡档੠ 
-**Resolution**: We will implement monolithic, paradigm-based skills (e.g. `mrst-ad-oo`, `mrst-core-procedural`, `mrst-advanced-solvers`) rather than granular per-module skills. This aligns with the MRST architecture where abstractions are central hubs and prevents tool-selection paralysis.
